@@ -24,8 +24,10 @@ print("Welcome to the Treasure Island")
 print("Your mission is to find the treasure ")
 choice = input("Do you want to move left L or right R? ")
 if choice == 'L':
+    print("You have came near a lake .\nThere is a Island in the middle of the lake")
     next_choice = input("Do you want to swim  S or wait W? ")
     if next_choice == "W":
+        print("You arrived at the Island.\n The Island has three doors with differnt colours ")
         door = input("Which door do you want to enter in? Red R, or Blue B or Yellow Y ")
         if door == "b" or "B":
             print("Oops!! Eaten by beasts. Game over.")
