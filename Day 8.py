@@ -46,8 +46,8 @@ choice = "yes"
 while choice == "yes":
 
     direction = input("Type 'encode' to encrypt and 'decode' to decrypt\n ")
-    text = input("Type your message:\n ")
-    shift = int(input("Type your shift number:\n "))
+    text = input("Type your message:\n ").lower()
+    shift = abs(int(input("Type your shift number:\n ")))
 
     if direction.lower() == 'encode':
         solution = encrypt(text, shift)
