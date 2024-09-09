@@ -24,34 +24,40 @@ def encrypt(text, shift):
     key_text = alphabet[shift:]+alphabet[:shift]
     encrypted = ""
     for letters in text:
-        encrypted += key_text[alphabet.index(letters)]
+        if letters not in alphabet:
+            encrypted += letters
+        else:
+           encrypted += key_text[alphabet.index(letters)]
     return encrypted
 
-def decode(text,shift):
+def decrypt(text,shift):
     shift %= 26
     key_text = alphabet[shift:] + alphabet[:shift]
     decoded = ""
     for letters in text:
-        letters += alphabet[key_text.index(letters)]
+        if letters not in alphabet:
+            decoded += letters
+        else:
+           decoded += alphabet[key_text.index(letters)]
     return decoded
 
 choice = "yes"
 
 while choice == "yes":
 
-    direction = input("Type 'encode' to encrypt and 'decode' to decrypt ")
-    text = input("Type your message: ")
-    shift = int(input("Type your shift number: "))
+    direction = input("Type 'encode' to encrypt and 'decode' to decrypt\n ")
+    text = input("Type your message:\n ")
+    shift = int(input("Type your shift number:\n "))
 
     if direction.lower() == 'encode':
         solution = encrypt(text, shift)
         print(f"Here's is the {direction}d result: ",solution)
 
     elif direction.lower() == 'decode':
-        solution = decode(text,shift)
+        solution = decrypt(text,shift)
         print(f"Here's is the {direction}d result: ",solution)
 
     else:
         print("Enter a valid choice")
-    choice = input("Type 'yes' if you want to go again. Otherwise type 'no'. ").lower()
+    choice = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n ").lower()
 print("Good bye ")
